@@ -1,0 +1,1 @@
+Projeto Criado ChatBot para Whatsapp utilizando node.js e whatsapp-web.js
