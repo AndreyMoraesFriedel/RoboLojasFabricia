@@ -29,7 +29,7 @@ client.on('message', message => {
 
     //Localização da Loja
     if (str == '1' || /onde fica/i.test(str) || /local/i.test(str) || /localização/i.test(str)) {
-        client.sendMessage(message.from, 'Loja Fabrícia fica em Blumenau - SC, Rua 2 de Setembro n 3649. 🏬\n\nAo lado da antiga empresa de ônibus da Glória defronte ao Banco do Brasil da Itoupava Norte. 🏦\n\nAo lado da lojinha Portal BAZAR de $ 10 20 ... 😘');
+        client.sendMessage(message.from, 'Loja Fabrícia fica em Blumenau - SC, Rua 2 de Setembro n 3649. 🏬\n\nAo lado da antiga empresa de ônibus da Glória defronte ao Banco do Brasil da Itoupava Norte. 🏦\n\nAo lado da antiga loja do $10... 😘');
     }
 
     //Crediário da Loja
