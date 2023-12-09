@@ -1,10 +1,7 @@
 const qrcode = require('qrcode-terminal');
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
-
-function removerAcentos(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
+let temCrediario = false;
 
 client.on('qr', qr => {
     qrcode.generate(qr, { small: true });
@@ -14,15 +11,19 @@ client.on('ready', () => {
     console.log('Client is ready!');
 });
 
+function removerAcentos(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 client.on('message', message => {
+    // Variável para obter a mensagem enviada
+    const str = removerAcentos(message.body.toLowerCase());
+
     // Verificar se a mensagem é de um grupo
     if (message.author || message.fromMe || message.isForwarded || message.broadcast) {
         // Ignorar mensagens que são de grupos ou encaminhadas
         return;
     }
-
-    // Variável para obter a mensagem enviada
-    const str = removerAcentos(message.body.toLowerCase());  
 
     // Possíveis saudações
     if (/tudo bem?/i.test(str) || /bom dia/i.test(str) || /boa tarde/i.test(str) || /boa noite/i.test(str)) {
@@ -36,12 +37,29 @@ client.on('message', message => {
     }
 
     // Crediário da Loja
-    if (str == '2' || /fazer crediario/i.test(str) || /faço crediario/i.test(str) || /funciona o crediario/i.test(str)) {
+    if (str == '2') {
+        client.sendMessage(message.from, 'Tem Crediário?');
+        if (temCrediario) {
+            client.sendMessage(message.from, 'Você já possui o crediário ativo. Se precisar de mais alguma informação, estou à disposição!');
+        } else {
+            client.sendMessage(message.from, 'Caso ainda não seja cadastrada(o) junto ao sistema de crediário *CREDILOJA*, basta enviar fotos bem legíveis do seu CPF, RG, comprovantes de renda e residência. 😊');
+            client.sendMessage(message.from, 'Caso seja *autônoma(o)*, apenas informe a profissão e a data desde quando está nela.');
+            client.sendMessage(message.from, 'Caso seja *casada(o)*, também apenas preciso que me passe o nome completo do marido/esposa.');
+            client.sendMessage(message.from, 'Caso não saiba se já é cadastrada(o), basta apenas me passar o número do seu CPF que já consulto para você, ok... 👍');
+            client.sendMessage(message.from, '*Caso tenha restrição junto ao SPC, a venda no crediário fica bloqueada, até que consiga solucionar esta situação...*');
+        }
+    }
+
+    if (/fazer crediario/i.test(str) || /faço crediario/i.test(str) || /funciona o crediario/i.test(str)) {
         client.sendMessage(message.from, 'Caso ainda não seja cadastrada(o) junto ao sistema de crediário *CREDILOJA*, basta enviar fotos bem legíveis do seu CPF, RG, comprovantes de renda e residência. 😊');
         client.sendMessage(message.from, 'Caso seja *autônoma(o)*, apenas informe a profissão e a data desde quando está nela.');
         client.sendMessage(message.from, 'Caso seja *casada(o)*, também apenas preciso que me passe o nome completo do marido/esposa.');
         client.sendMessage(message.from, 'Caso não saiba se já é cadastrada(o), basta apenas me passar o número do seu CPF que já consulto para você, ok... 👍');
         client.sendMessage(message.from, '*Caso tenha restrição junto ao SPC, a venda no crediário fica bloqueada, até que consiga solucionar esta situação...*');
+    }
+
+    if (/credito ativo/i.test(str) || /tenho crediario/i.test(str)) {
+        temCrediario = true;
     }
 
     // Horario da Loja
