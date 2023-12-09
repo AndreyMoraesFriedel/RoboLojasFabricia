@@ -24,12 +24,12 @@ client.on('message', message => {
     //Possíveis saudações
     if (/tudo bem?/i.test(str) || /bom dia/i.test(str) || /boa tarde/i.test(str) || /boa noite/i.test(str)) {  
         client.sendMessage(message.from, 'Seja Bem Vindo! Meu nome é *Fabi*, sua assistente virtual da Lojas Fabricia. 🙋‍♀️');
-        client.sendMessage(message.from, 'Como posso te ajudar? Digite o *numero* da opção🌟\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
+        client.sendMessage(message.from, 'Como posso te ajudar?\n\n*Lembramos que durante este mês de Dezembro estaremos atendendo também aos domingos*\n\nDigite o *numero* da opção🌟\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
     }
 
     //Localização da Loja
     if (str == '1' || /onde fica/i.test(str) || /local/i.test(str) || /localização/i.test(str)) {
-        client.sendMessage(message.from, 'Loja Fabrícia fica em Blumenau - SC, Rua 2 de Setembro n 3649. 🏬\n\nAo lado da antiga empresa de ônibus da Glória defronte ao Banco do Brasil da Itoupava Norte. 🏦\n\nAo lado da antiga loja do $10... 😘');
+        client.sendMessage(message.from, 'Loja Fabrícia fica em Blumenau - SC, Rua 2 de Setembro n 3649. 🏬\n\nAo lado da antiga empresa de ônibus da Glória defronte ao Banco do Brasil da Itoupava Norte. 🏦\n\nAo lado da antiga loja quase tudo $10 (agora PORTAL) 😘');
     }
 
     //Crediário da Loja
@@ -43,7 +43,7 @@ client.on('message', message => {
    
     //Horario da Loja
     if (str == '3' || /horas/i.test(str) || /horário/i.test(str) || /horario/i.test(str)) {
-        client.sendMessage(message.from, 'Horário de Funcionamento:\n\nSegunda a Sexta das 8:30 às 18:00 hrs\nSábados das 8:30 às 17:00 hrs\n\n*Todos os dias sem fechar para o almoço.* 🕒🛍️');
+        client.sendMessage(message.from, 'Horário de Funcionamento:\n\nSegunda a Sexta das 8:30 às 18:00 hrs\nSábados e Domingos das 9:00 às 17:00 hrs\n\n*Todos os dias sem fechar para o almoço.* 🕒🛍️');
         client.sendMessage(message.from, 'Venha apenas nos fazer uma visitinha! Já estamos te esperando 🤗😘');
     }
 
