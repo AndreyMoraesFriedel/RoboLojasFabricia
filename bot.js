@@ -49,12 +49,12 @@ client.on('message', message => {
     }
 
 
-    if (str == '6' || /pagar conta/i.test(str) || /tenho crediario/i.test(str)) {
+    if (str == '6' || /pagar a conta/i.test(str) || /tenho crediario/i.test(str)) {
         client.sendMessage(message.from, 'Digite seu número de CPF:');
     }
 
 
-    if (str == '7' || /fazer crediario/i.test(str) || /faço crediario/i.test(str) || /funciona o crediario/i.test(str)) {
+    if (str == '7' || /fazer o crediario/i.test(str) || /faço o crediario/i.test(str) || /funciona o crediario/i.test(str)) {
         client.sendMessage(message.from, 'Caso ainda não seja cadastrada(o) junto ao sistema de crediário *CREDILOJA*, basta enviar fotos bem legíveis do seu CPF, RG, comprovantes de renda e residência. 😊');
         client.sendMessage(message.from, 'Caso seja *autônoma(o)*, apenas informe a profissão e a data desde quando está nela.');
         client.sendMessage(message.from, 'Caso seja *casada(o)*, também apenas preciso que me passe o nome completo do marido/esposa.');
