@@ -24,5 +24,4 @@ jobs:
           context: .
           push: true
           tags: |
-            andreymoraesfriedel/botlojasfabricia:v1
             andreymoraesfriedel/botlojasfabricia:latest
