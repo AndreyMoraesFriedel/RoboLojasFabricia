@@ -23,8 +23,11 @@ client.on('ready', () => {
 function removerAcentos(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
+
 client.on('message', message => {
     const str = removerAcentos(message.body.toLowerCase());
+
+
 
 
     // Verificar se a mensagem é de um grupo
@@ -34,11 +37,15 @@ client.on('message', message => {
     }
 
 
+
+
     // Possíveis saudações
     if (/oii/i.test(str) || /tudo bem?/i.test(str) || /bom dia/i.test(str) || /boa tarde/i.test(str) || /boa noite/i.test(str)) {
         client.sendMessage(message.from, 'Seja Bem Vindo! Meu nome é *Fabi*, sua assistente virtual da Lojas Fabricia. 🙋‍♀️');
-        client.sendMessage(message.from, 'Como posso te ajudar?\n\n*Lembramos que durante este mês de Dezembro estaremos atendendo também aos Domingos*\n\nDigite o *numero* da opção🌟\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
+        client.sendMessage(message.from, 'Como posso te ajudar?\n\n*Lembramos que durante este Domingo dia 24 de Dezembro estaremos atendendo das 9:00 às 14:00 hrs*\n\nDigite o *numero* da opção🌟\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
     }
+
+
 
 
     // Localização da Loja
@@ -47,15 +54,21 @@ client.on('message', message => {
     }
 
 
+
+
     // Crediário da Loja
     if (str == '2') {
         client.sendMessage(message.from, 'Você é cadastrado(a)? Digite o *numero* da opção🌟\n\n6 - Sou Cadastrado(a)\n7 - Não sei ou Não sou Cadastrado(a)');
     }
 
 
+
+
     if (str == '6' || /pagar a conta/i.test(str) || /tenho crediario/i.test(str)) {
         client.sendMessage(message.from, 'Digite seu número de CPF:');
     }
+
+
 
 
     if (str == '7' || /fazer o crediario/i.test(str) || /faço o crediario/i.test(str) || /funciona o crediario/i.test(str)) {
@@ -67,9 +80,11 @@ client.on('message', message => {
     }
 
 
+
+
     // Horario da Loja
     if (str == '3' || /horas/i.test(str) || /horario/i.test(str)) {
-        client.sendMessage(message.from, 'Horário de Funcionamento:\n\nSegunda a Sexta das 8:30 às 18:00 hrs\nSábados e Domingos das 9:00 às 17:00 hrs\n\n*Todos os dias sem fechar para o almoço.* 🕒🛍️');
+        client.sendMessage(message.from, 'Horário de Funcionamento:\n\nSegunda a Sexta das 8:30 às 18:00 hrs\nSábados das 9:00 às 17:00 hrs\nDomingo das 9:00 às 14:00 hrs\n\n*Todos os dias sem fechar para o almoço.* 🕒🛍️');
         client.sendMessage(message.from, 'Venha apenas nos fazer uma visitinha! Já estamos te esperando 🤗😘');
     }
 
@@ -88,6 +103,7 @@ client.on('message', message => {
     if (str == '5') {
         client.sendMessage(message.from, 'Olá amiga(o), responderemos sua mensagem assim que possível.🤗👍');
     }
+
 
 });
 
