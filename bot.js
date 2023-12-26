@@ -66,7 +66,7 @@ client.on('message', message => {
 
 
     // Horario da Loja
-    if (str == '3' || /horas/i.test(str) || /horario/i.test(str) || /abre/i.test(str)) {
+    if (str == '3' || /horas/i.test(str) || /horario/i.test(str) || /loja abre/i.test(str) || /abre a loja/i.test(str)) {
         client.sendMessage(message.from, 'Horário de Funcionamento:\n\nSegunda a Sexta das 8:30 às 18:00 hrs\nSábados das 9:00 às 17:00 hrs\n\n*Todos os dias sem fechar para o almoço.* 🕒🛍️');
         client.sendMessage(message.from, 'Venha apenas nos fazer uma visitinha! Já estamos te esperando 🤗😘');
     }
