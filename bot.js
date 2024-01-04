@@ -36,14 +36,14 @@ client.on('message', message => {
 
     // Possíveis saudações
     if (/oii/i.test(str) || /tudo bem?/i.test(str) || /bom dia/i.test(str) || /boa tarde/i.test(str) || /boa noite/i.test(str)) {
-        client.sendMessage(message.from, 'Seja Bem Vindo! Meu nome é *Fabi*, sua assistente virtual da Lojas Fabricia. 🙋‍♀️');
-        client.sendMessage(message.from, 'Como posso te ajudar?\n\n*Lembramos que estaremos atendendo até Sábado dia 30/12 até às 17:00 hrs*\n\nDigite o *numero* da opção🌟\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
+        client.sendMessage(message.from, 'Seja Bem Vindo! Meu nome é *Fabi*, sua assistente virtual da Lojas Fabricia.');
+        client.sendMessage(message.from, '*Desejamos a todos um feliz ano novo!*\n\nComo posso te ajudar?\n\nDigite o *numero* da opção.\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
     }
 
 
     // Localização da Loja
     if (str == '1' || /onde fica/i.test(str) || /local/i.test(str) || /localização/i.test(str)) {
-        client.sendMessage(message.from, 'Loja Fabrícia fica em Blumenau - SC, Rua 2 de Setembro n 3649. 🏬\n\nAo lado da antiga empresa de ônibus da Glória defronte ao Banco do Brasil da Itoupava Norte. 🏦\n\nAo lado da antiga loja quase tudo $10 (agora PORTAL) 😘');
+        client.sendMessage(message.from, 'Loja Fabrícia fica em Blumenau - SC, Rua 2 de Setembro n 3649. 🏬\n\nAo lado da antiga empresa de ônibus da Glória defronte ao Banco do Brasil da Itoupava Norte. 🏦\n\nAo lado da antiga lojinha quase tudo $10 (agora PORTAL) 😘');
     }
 
 
@@ -52,9 +52,11 @@ client.on('message', message => {
         client.sendMessage(message.from, 'Você é cadastrado(a)? Digite o *numero* da opção🌟\n\n6 - Sou Cadastrado(a)\n7 - Não sei ou Não sou Cadastrado(a)');
     }
 
+
     if (str == '6' || /pagar a conta/i.test(str) || /tenho crediario/i.test(str)) {
         client.sendMessage(message.from, 'Digite seu número de CPF:');
     }
+
 
     if (str == '7' || /fazer o crediario/i.test(str) || /faço o crediario/i.test(str) || /funciona o crediario/i.test(str)) {
         client.sendMessage(message.from, 'Caso ainda não seja cadastrada(o) junto ao sistema de crediário *CREDILOJA*, basta enviar fotos bem legíveis do seu CPF, RG, comprovantes de renda e residência. 😊');
@@ -73,7 +75,7 @@ client.on('message', message => {
 
 
     // Estacionamento da Loja
-    if (str == '4' || /estacionamento/i.test(str)) {
+    if (str == '4' || /estacionamento/i.test(str) || /para estacionar/i.test(str)) {
         client.sendMessage(message.from, '*Sim  !!!* Pode estacionar em qualquer vaga defronte ao prédio, pois as mesmas são públicas.🤗👍');
     }
 
@@ -85,7 +87,6 @@ client.on('message', message => {
 
 
 });
-
 
 
 client.initialize();
