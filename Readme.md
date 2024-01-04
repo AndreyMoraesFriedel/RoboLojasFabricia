@@ -26,7 +26,8 @@ ou
 `docker run -it andreymoraesfriedel/botlojasfabricia`
 
 ---
-![assinatura-andreymoraesfriedel](https://github.com/AndreyMoraesFriedel/RoboLojasFabricia/assets/134893056/8dfedd60-bbf3-4179-bb70-acad312300f9)
+![assinatura-andreymoraesfriedel](https://github.com/AndreyMoraesFriedel/RoboLojasFabricia/assets/134893056/40dd31c9-a55d-4edb-aec1-4cd4796fdee4)
+
 
 ### **Links** :link:
 * Meu perfil no [GitHub](https://github.com/AndreyMoraesFriedel) :octocat:
