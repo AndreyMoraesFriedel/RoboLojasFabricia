@@ -37,7 +37,7 @@ client.on('message', message => {
     // Possíveis saudações
     if (/oii/i.test(str) || /tudo bem?/i.test(str) || /bom dia/i.test(str) || /boa tarde/i.test(str) || /boa noite/i.test(str)) {
         client.sendMessage(message.from, 'Seja Bem Vindo! Meu nome é *Fabi*, sua assistente virtual da Lojas Fabricia.');
-        client.sendMessage(message.from, '*Desejamos a todos um feliz ano novo!*\n\nComo posso te ajudar?\n\nDigite o *numero* da opção.\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
+        client.sendMessage(message.from, 'Como posso te ajudar?\n\nDigite o *numero* da opção.\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
     }
 
 
@@ -49,7 +49,7 @@ client.on('message', message => {
 
     // Crediário da Loja
     if (str == '2') {
-        client.sendMessage(message.from, 'Você é cadastrado(a)? Digite o *numero* da opção🌟\n\n6 - Sou Cadastrado(a)\n7 - Não sei ou Não sou Cadastrado(a)');
+        client.sendMessage(message.from, 'Você é cadastrado(a)?\n\nDigite o *numero* da opção.\n\n6 - Sou Cadastrado(a)\n7 - Não sei ou Não sou Cadastrado(a)');
     }
 
 
