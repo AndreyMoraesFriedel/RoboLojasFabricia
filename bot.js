@@ -35,7 +35,7 @@ client.on('message', message => {
 
 
     // Possíveis saudações
-    if (/oii/i.test(str) || /tudo bem?/i.test(str) || /bom dia/i.test(str) || /boa tarde/i.test(str) || /boa noite/i.test(str)) {
+    if (/oii/i.test(str) || /ola/i.test(str) || /tudo bem?/i.test(str) || /bom dia/i.test(str) || /boa tarde/i.test(str) || /boa noite/i.test(str)) {
         client.sendMessage(message.from, 'Seja Bem Vindo! Meu nome é *Fabi*, sua assistente virtual da Lojas Fabricia.');
         client.sendMessage(message.from, 'Como posso te ajudar?\n\nDigite o *numero* da opção.\n\n1 - Endereço da Loja\n2 - Crediário\n3 - Horário De Funcionamento\n4 - Possui Estacionamento?\n5 - Falar Conosco');
     }
@@ -60,6 +60,7 @@ client.on('message', message => {
 
     if (str == '7' || /fazer o crediario/i.test(str) || /faço o crediario/i.test(str) || /funciona o crediario/i.test(str)) {
         client.sendMessage(message.from, 'Caso ainda não seja cadastrada(o) junto ao sistema de crediário *CREDILOJA*, basta enviar fotos bem legíveis do seu CPF, RG, comprovantes de renda e residência. 😊');
+        client.sendMessage(message.from, '*ATENÇÃO: CNH não serve, é necessário que seja o RG original*');
         client.sendMessage(message.from, 'Caso seja *autônoma(o)*, apenas informe a profissão e a data desde quando está nela.');
         client.sendMessage(message.from, 'Caso seja *casada(o)*, também apenas preciso que me passe o nome completo do marido/esposa.');
         client.sendMessage(message.from, 'Caso não saiba se já é cadastrada(o), basta apenas me passar o número do seu CPF que já consulto para você, ok... 👍');
