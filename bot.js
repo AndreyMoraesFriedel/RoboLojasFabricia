@@ -1,5 +1,6 @@
 const qrcode = require('qrcode-terminal');
 
+const wwebVersion = '2.2407.3';
 
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const client = new Client({
@@ -7,6 +8,10 @@ const client = new Client({
     puppeteer: {
       headless: true,
       args: ["--no-sandbox"],
+    },
+    webVersionCache: {
+        type: 'remote',
+        remotePath: `https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/${wwebVersion}.html`,
     },
 });
 
