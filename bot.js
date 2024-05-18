@@ -1,7 +1,5 @@
 const qrcode = require('qrcode-terminal');
 
-const wwebVersion = '2.2407.3';
-
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const client = new Client({
     authStrategy: new LocalAuth(),
@@ -11,7 +9,7 @@ const client = new Client({
     },
     webVersionCache: {
         type: 'remote',
-        remotePath: `https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/${wwebVersion}.html`,
+        remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2410.1.html',
     },
 });
 
@@ -29,7 +27,7 @@ function removerAcentos(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
-client.on('message', message => {
+client.on('message', async message => {
     const str = removerAcentos(message.body.toLowerCase());
 
     // Verificar se a mensagem é de um grupo
@@ -88,7 +86,12 @@ client.on('message', message => {
 
     // Opção 'Falar Conosco'
     if (str == '5') {
-        client.sendMessage(message.from, 'Olá amiga(o), responderemos sua mensagem assim que possível.🤗👍');
+        await client.sendMessage(message.from, 'Olá amiga(o), responderemos sua mensagem assim que possível.🤗👍');
+        // Não marcar a mensagem como lida
+        // Aguarde um pouco para garantir que a mensagem foi enviada antes de continuar
+        setTimeout(async () => {
+            // Aqui não marcamos a mensagem como lida
+        }, 1000);
     }
 
 
